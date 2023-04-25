@@ -7,11 +7,15 @@ local e = w:CreateFolder("Settings")
 
 function getCoal()
     local player = game:GetService("Players").LocalPlayer
-    local drops = game:GetService("Workspace")["TycoonKit 1.13"].Tycoons["Blue Miners"].Drops
-    for _, item in pairs(drops:GetChildren()) do
-        item.CFrame = player.Character.HumanoidRootPart.CFrame
+    local tycoons = {"Blue Miners", "Green Miners", "Red Miners", "Orange Miners", "Purple Miners"}
+    for _, tycoon in ipairs(tycoons) do
+        local drops = game:GetService("Workspace")["TycoonKit 1.13"].Tycoons[tycoon].Drops
+        for _, item in pairs(drops:GetChildren()) do
+            item.CFrame = player.Character.HumanoidRootPart.CFrame
+        end
     end
 end
+
 
 function tpToMiner()
     local teleport = game:GetService("Workspace")["TycoonKit 1.13"].Tycoons["Blue Miners"].Essentials.TycoonSpawn
